@@ -2892,7 +2892,7 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
         if (!fLiteMode && !fImporting && !fReindex && pindexBest->nHeight > Checkpoints::GetTotalBlocksEstimate()){
             if(masternodePayments.GetBlockPayee(pindexBest->nHeight, payee)){
                 // MAYBE NEEDS TO BE REWORKED
-                //UPDATE MASTERNODE LAST PAID TIME
+                // UPDATE MASTERNODE LAST PAID TIME
                 // CMasternode* pmn = mnodeman.Find(vin);
                 // if(pmn != NULL) {
                 //     pmn->nLastPaid = GetAdjustedTime();
