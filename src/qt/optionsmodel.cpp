@@ -48,7 +48,7 @@ void OptionsModel::Init()
     nReserveBalance = settings.value("nReserveBalance").toLongLong();
     language = settings.value("language", "").toString();
 	nDarksendRounds = settings.value("nDarksendRounds").toLongLong();
-    nAnonymizeDenariusAmount = settings.value("nAnonymizeDenariusAmount").toLongLong();
+    nAnonymizeQwoynAmount = settings.value("nAnonymizeQwoynAmount").toLongLong();
 
     // These are shared with core Bitcoin; we want
     // command-line options to override the GUI settings:
@@ -60,8 +60,8 @@ void OptionsModel::Init()
         SoftSetArg("-socks", settings.value("nSocksVersion").toString().toStdString());
 	if (settings.contains("nDarksendRounds"))
         SoftSetArg("-darksendrounds", settings.value("nDarksendRounds").toString().toStdString());
-    if (settings.contains("nAnonymizeDenariusAmount"))
-        SoftSetArg("-anonymizedenariusamount", settings.value("nAnonymizeDenariusAmount").toString().toStdString());
+    if (settings.contains("nAnonymizeQwoynAmount"))
+        SoftSetArg("-anonymizeqwoynamount", settings.value("nAnonymizeQwoynAmount").toString().toStdString());
     if (settings.contains("detachDB"))
         SoftSetBoolArg("-detachdb", settings.value("detachDB").toBool());
     if (!language.isEmpty())
@@ -120,8 +120,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("language", "");
 		case DarksendRounds:
             return QVariant(nDarksendRounds);
-        case AnonymizeDenariusAmount:
-            return QVariant(nAnonymizeDenariusAmount);
+        case AnonymizeQwoynAmount:
+            return QVariant(nAnonymizeQwoynAmount);
         case CoinControlFeatures:
             return QVariant(fCoinControlFeatures);
         default:
@@ -223,10 +223,10 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             settings.setValue("nDarksendRounds", nDarksendRounds);
             emit darksendRoundsChanged(nDarksendRounds);
             break;
-        case AnonymizeDenariusAmount:
-            nAnonymizeDenariusAmount = value.toInt();
-            settings.setValue("nAnonymizeDenariusAmount", nAnonymizeDenariusAmount);
-            emit anonymizeDenariusAmountChanged(nAnonymizeDenariusAmount);
+        case AnonymizeQwoynAmount:
+            nAnonymizeQwoynAmount = value.toInt();
+            settings.setValue("nAnonymizeQwoynAmount", nAnonymizeQwoynAmount);
+            emit anonymizeQwoynAmountChanged(nAnonymizeQwoynAmount);
             break;
         case CoinControlFeatures: {
             fCoinControlFeatures = value.toBool();

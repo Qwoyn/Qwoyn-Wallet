@@ -32,7 +32,7 @@ public:
         DetachDatabases,   // bool
         Language,          // QString
 		DarksendRounds,    // int
-        AnonymizeDenariusAmount, //int
+        AnonymizeQwoynAmount, //int
         CoinControlFeatures, // bool
         OptionIDRowCount,
     };
@@ -66,7 +66,7 @@ signals:
     void transactionFeeChanged(qint64);
     void reserveBalanceChanged(qint64);
 	void darksendRoundsChanged(int);
-    void anonymizeDenariusAmountChanged(int);
+    void anonymizeQwoynAmountChanged(int);
     void coinControlFeaturesChanged(bool);
 };
 

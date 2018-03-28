@@ -103,7 +103,7 @@ OBJS= \
 	obj/richlistdb.o \
 	obj/richlistdata.o
 
-all: denariusd.exe
+all: qwoynd.exe
 
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += -I"$(CURDIR)/leveldb/include"
@@ -124,9 +124,9 @@ obj/%.o: %.cpp $(HEADERS)
 obj/zerocoin/%.o: zerocoin/%.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
 
-denariusd.exe: $(OBJS:obj/%=obj/%)
+qwoynd.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS) -lshlwapi
-	$(STRIP) denariusd.exe
+	$(STRIP) qwoynd.exe
 
 obj/scrypt-x86.o: scrypt-x86.S
 	$(CXX) -c $(CFLAGS) -MMD -o $@ $<
@@ -137,7 +137,7 @@ obj/scrypt-x86_64.o: scrypt-x86_64.S
 clean:
 	-rm -f obj/*.o
 	-rm -f obj/zerocoin/*.o
-	-rm -f denariusd.exe
+	-rm -f qwoynd.exe
 	-rm -f obj/build.h
 	cd leveldb && TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) clean && cd ..
 

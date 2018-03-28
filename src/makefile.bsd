@@ -140,7 +140,7 @@ OBJS= \
 	obj/richlistdb.o \
 	obj/richlistdata.o
 
-all: denariusd
+all: qwoynd
 
 #
 # LevelDB support
@@ -196,11 +196,11 @@ obj/%.o: json/%.cpp
 	-e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	rm -f $(@:%.o=%.d)
 
-denariusd: $(OBJS:obj/%=obj/%)
+qwoynd: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f denariusd
+	-rm -f qwoynd
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/build.h

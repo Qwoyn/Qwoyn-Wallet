@@ -251,7 +251,7 @@ private slots:
     void showConsole();
     void showGraph();
 
-    /** Open external (default) editor with denarius.conf */
+    /** Open external (default) editor with qwoyn.conf */
     void showConfEditor();
     /** Open external (default) editor with masternode.conf */
     void showMNConfEditor();

@@ -94,7 +94,7 @@ OBJS= \
 	obj/richlistdb.o \
 	obj/richlistdata.o
 
-all: denariusd.exe
+all: qwoynd.exe
 
 #
 # LevelDB support
@@ -145,11 +145,11 @@ obj/%.o: json/%.cpp
 	-e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	rm -f $(@:%.o=%.d)
 
-denariusd.exe: $(OBJS:obj/%=obj/%)
+qwoynd.exe: $(OBJS:obj/%=obj/%)
 	g++ $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
 
 clean:
-	-del /Q denariusd
+	-del /Q qwoynd
 	-del /Q obj\*
 
 FORCE:

@@ -127,7 +127,7 @@
           <item>
            <widget class="QLabel" name="label">
             <property name="text">
-             <string>Generated Timestamp Denarius Address:</string>
+             <string>Generated Timestamp Qwoyn Address:</string>
             </property>
            </widget>
           </item>
@@ -164,7 +164,7 @@
             <item>
              <widget class="QLabel" name="label_5">
               <property name="text">
-               <string>Check a previous Transaction Hash for Denarius proofs.</string>
+               <string>Check a previous Transaction Hash for Qwoyn proofs.</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>

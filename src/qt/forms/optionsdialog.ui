@@ -125,10 +125,10 @@
        <item>
         <widget class="QCheckBox" name="bitcoinAtStartup">
          <property name="toolTip">
-          <string>Automatically start Denarius after logging in to the system.</string>
+          <string>Automatically start Qwoyn after logging in to the system.</string>
          </property>
          <property name="text">
-          <string>&amp;Start Denarius on system login</string>
+          <string>&amp;Start Qwoyn on system login</string>
          </property>
         </widget>
        </item>
@@ -175,7 +175,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QLabel" name="labeldenarius">
+          <widget class="QLabel" name="labelqwoyn">
            <property name="toolTip">
             <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This amount acts as a threshold to turn off Darksend once it's reached. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
@@ -192,12 +192,12 @@
             <string notr="true"/>
            </property>
            <property name="text">
-            <string>Amount of Denarius to keep anonymized</string>
+            <string>Amount of Qwoyn to keep anonymized</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="anonymizeDenarius">
+          <widget class="QSpinBox" name="anonymizeQwoyn">
            <property name="minimum">
             <number>1</number>
            </property>
@@ -237,7 +237,7 @@
        <item>
         <widget class="QCheckBox" name="mapPortUpnp">
          <property name="toolTip">
-          <string>Automatically open the Denarius client port on the router. This only works when your router supports UPnP and it is enabled.</string>
+          <string>Automatically open the Qwoyn client port on the router. This only works when your router supports UPnP and it is enabled.</string>
          </property>
          <property name="text">
           <string>Map port using &amp;UPnP</string>
@@ -247,7 +247,7 @@
        <item>
         <widget class="QCheckBox" name="connectSocks">
          <property name="toolTip">
-          <string>Connect to the Denarius network through a SOCKS proxy (e.g. when connecting through Tor).</string>
+          <string>Connect to the Qwoyn network through a SOCKS proxy (e.g. when connecting through Tor).</string>
          </property>
          <property name="text">
           <string>&amp;Connect through SOCKS proxy:</string>
@@ -421,7 +421,7 @@
          <item>
           <widget class="QValueComboBox" name="lang">
            <property name="toolTip">
-            <string>The user interface language can be set here. This setting will take effect after restarting Denarius.</string>
+            <string>The user interface language can be set here. This setting will take effect after restarting Qwoyn.</string>
            </property>
           </widget>
          </item>
@@ -454,7 +454,7 @@
        <item>
         <widget class="QCheckBox" name="displayAddresses">
          <property name="toolTip">
-          <string>Whether to show Denarius addresses in the transaction list or not.</string>
+          <string>Whether to show Qwoyn addresses in the transaction list or not.</string>
          </property>
          <property name="text">
           <string>&amp;Display addresses in transaction list</string>

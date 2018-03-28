@@ -47,7 +47,7 @@
       <string notr="true">color: #FFF;font-size:26px;font-weight:600;</string>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20px;font-weight:600; color:#FFFFFF;&quot;&gt;Denarius Market Information&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20px;font-weight:600; color:#FFFFFF;&quot;&gt;Qwoyn Market Information&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -63,7 +63,7 @@
    <item row="17" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
-      <widget class="QLabel" name="denarius">
+      <widget class="QLabel" name="qwoyn">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -531,7 +531,7 @@
         <enum>Qt::RichText</enum>
        </property>
        <property name="pixmap">
-        <pixmap resource="../bitcoin.qrc">:/icons/denarius</pixmap>
+        <pixmap resource="../bitcoin.qrc">:/icons/qwoyn</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>

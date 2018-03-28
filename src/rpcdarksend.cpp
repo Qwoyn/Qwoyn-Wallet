@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Darkcoin developers
-// Copyright (c) 2017 The Denarius developers
+// Copyright (c) 2017 The Qwoyn developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -36,7 +36,7 @@ void SendMoney(const CTxDestination &address, CAmount nValue, CWalletTx& wtxNew,
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
     }
 
-    // Parse Denarius address
+    // Parse Qwoyn address
     CScript scriptPubKey = GetScriptForDestination(address);
 
     // Create and send the transaction
@@ -58,8 +58,8 @@ Value darksend(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() == 0)
         throw runtime_error(
-            "darksend <denariusaddress> <amount>\n"
-            "denariusaddress, reset, or auto (AutoDenominate)"
+            "darksend <qwoynaddress> <amount>\n"
+            "qwoynaddress, reset, or auto (AutoDenominate)"
             "<amount> is a real and is rounded to the nearest 0.00000001"
             + HelpRequiringPassphrase());
 
@@ -82,14 +82,14 @@ Value darksend(const Array& params, bool fHelp)
 
     if (params.size() != 2)
         throw runtime_error(
-            "darksend <denariusaddress> <amount>\n"
-            "denariusaddress, denominate, or auto (AutoDenominate)"
+            "darksend <qwoynaddress> <amount>\n"
+            "qwoynaddress, denominate, or auto (AutoDenominate)"
             "<amount> is a real and is rounded to the nearest 0.00000001"
             + HelpRequiringPassphrase());
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Denarius address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Qwoyn address");
 
     // Amount
     int64_t nAmount = AmountFromValue(params[1]);
@@ -157,17 +157,17 @@ Value masternode(const Array& params, bool fHelp)
 			"  enforce      - Enforce masternode payments\n"
 			"  outputs      - Print masternode compatible outputs\n"
             "  status       - Current masternode status\n"
-			"  start        - Start masternode configured in denarius.conf\n"
+			"  start        - Start masternode configured in qwoyn.conf\n"
 			"  start-alias  - Start single masternode by assigned alias configured in masternode.conf\n"
 			"  start-many   - Start all masternodes configured in masternode.conf\n"
-			"  stop         - Stop masternode configured in denarius.conf\n"
+			"  stop         - Stop masternode configured in qwoyn.conf\n"
 			"  stop-alias   - Stop single masternode by assigned alias configured in masternode.conf\n"
 			"  stop-many    - Stop all masternodes configured in masternode.conf\n"
 			"  list         - Print list of all known masternodes (see masternodelist for more info)\n"
 			"  list-conf    - Print masternode.conf in JSON format\n"
 			"  winners      - Print list of masternode winners\n"
-			//"  vote-many    - Vote on a Denarius initiative\n"
-			//"  vote         - Vote on a Denarius initiative\n"
+			//"  vote-many    - Vote on a Qwoyn initiative\n"
+			//"  vote         - Vote on a Qwoyn initiative\n"
             );
     if (strCommand == "stop")
     {

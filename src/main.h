@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2017-2018 The Denarius developers
+// Copyright (c) 2017-2018 The Qwoyn developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_MAIN_H
@@ -70,7 +70,7 @@ class CInv;
 class CRequestTracker;
 class CNode;
 
-// General Denarius Block Values
+// General Qwoyn Block Values
 
 static const int LAST_POW_BLOCK = 3000000; // Block 3m Approx. 3 years of Proof of Work before Proof of Stake consensus kicks in
 static const int FAIR_LAUNCH_BLOCK = 210; // Last Block until full block reward starts
@@ -85,7 +85,7 @@ static const unsigned int MAX_ORPHAN_TRANSACTIONS = MAX_BLOCK_SIZE/100;
 static const unsigned int MAX_INV_SZ = 50000;
 static const int64_t MIN_TX_FEE = 1000;
 static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
-static const int64_t MAX_MONEY = 10000000 * COIN; // 10,000,000 DNR Denarius Max
+static const int64_t MAX_MONEY = 10000000 * COIN; // 10,000,000 DNR Qwoyn Max
 static const int64_t COIN_YEAR_REWARD = 0.06 * COIN; // 6% per year
 
 static const int64_t MAINNET_POSFIX = 640000; //Mainnet Proof of Stake update not enabled until block 640k

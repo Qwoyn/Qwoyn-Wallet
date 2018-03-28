@@ -22,9 +22,9 @@
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 3
 
-const QString BaseURL = "http://denarius.io/dnrusd.php";
-const QString BaseURL2 = "http://denarius.io/dnrbtc.php";
-double denariusx;
+const QString BaseURL = "http://qwoyn.io/dnrusd.php";
+const QString BaseURL2 = "http://qwoyn.io/dnrbtc.php";
+double qwoynx;
 double dnrbtcx;
 
 class TxViewDelegate : public QAbstractItemDelegate
@@ -190,17 +190,17 @@ void OverviewPage::parseNetworkResponse(QNetworkReply *finished )
         return;
     }
 	
-if (what == BaseURL) // Denarius Price
+if (what == BaseURL) // Qwoyn Price
 {
 
     // QNetworkReply is a QIODevice. So we read from it just like it was a file
-    QString denarius = finished->readAll();
-    denariusx = (denarius.toDouble());
-    denarius = QString::number(denariusx, 'f', 2);
+    QString qwoyn = finished->readAll();
+    qwoynx = (qwoyn.toDouble());
+    qwoyn = QString::number(qwoynx, 'f', 2);
 
-	dollarg = denarius;
+	dollarg = qwoyn;
 }
-if (what == BaseURL2) // Denarius BTC Price
+if (what == BaseURL2) // Qwoyn BTC Price
 {
 
     // QNetworkReply is a QIODevice. So we read from it just like it was a file
@@ -335,7 +335,7 @@ void OverviewPage::updateDarksendProgress()
     }
 
     //Get the anon threshold
-    int64_t nMaxToAnonymize = nAnonymizeDenariusAmount*COIN;
+    int64_t nMaxToAnonymize = nAnonymizeQwoynAmount*COIN;
 
     // If it's more than the wallet amount, limit to that.
     if(nMaxToAnonymize > nBalance) nMaxToAnonymize = nBalance;
@@ -390,7 +390,7 @@ void OverviewPage::darkSendStatus()
             strSettings.prepend(QString::number(nDarksendRounds)).prepend(" / ");
             strSettings.prepend(BitcoinUnits::formatWithUnit(
                     model->getOptionsModel()->getDisplayUnit(),
-                    nAnonymizeDenariusAmount * COIN)
+                    nAnonymizeQwoynAmount * COIN)
             );
 
             ui->labelAmountRounds->setText(strSettings);
@@ -564,7 +564,7 @@ void OverviewPage::toggleDarksend(){
 
         /* show darksend configuration if client has defaults set */
 
-        if(nAnonymizeDenariusAmount == 0){
+        if(nAnonymizeQwoynAmount == 0){
             DarksendConfig dlg(this);
             dlg.setModel(model);
             dlg.exec();

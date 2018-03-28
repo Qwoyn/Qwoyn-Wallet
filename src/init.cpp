@@ -99,7 +99,7 @@ void Shutdown(void* parg)
     printf("Shutdown is in progress...\n\n");
 
     // Make this thread recognisable as the shutdown thread
-    RenameThread("denarius-shutoff");
+    RenameThread("qwoyn-shutoff");
 
     bool fFirstThread = false;
     {
@@ -127,7 +127,7 @@ void Shutdown(void* parg)
         delete pwalletMain;
         NewThread(ExitTimeout, NULL);
         MilliSleep(50);
-        printf("Denarius exited\n\n");
+        printf("Qwoyn exited\n\n");
         fExit = true;
 #ifndef QT_GUI
         // ensure non-UI client gets exited here, but let Bitcoin-Qt reach 'return 0;' in bitcoin.cpp
@@ -185,12 +185,12 @@ bool AppInit(int argc, char* argv[])
         if (mapArgs.count("-?") || mapArgs.count("--help"))
         {
             // First part of help message is specific to bitcoind / RPC client
-            std::string strUsage = _("Denarius version") + " " + FormatFullVersion() + "\n\n" +
+            std::string strUsage = _("Qwoyn version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  denariusd [options]                     " + "\n" +
-                  "  denariusd [options] <command> [params]  " + _("Send command to -server or denariusd") + "\n" +
-                  "  denariusd [options] help                " + _("List commands") + "\n" +
-                  "  denariusd [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  qwoynd [options]                     " + "\n" +
+                  "  qwoynd [options] <command> [params]  " + _("Send command to -server or qwoynd") + "\n" +
+                  "  qwoynd [options] help                " + _("List commands") + "\n" +
+                  "  qwoynd [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage();
 
@@ -200,7 +200,7 @@ bool AppInit(int argc, char* argv[])
 
         // Command-line RPC
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "denarius:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "qwoyn:"))
                 fCommandLine = true;
 
         if (fCommandLine)
@@ -273,13 +273,13 @@ int main(int argc, char* argv[])
 
 bool static InitError(const std::string &str)
 {
-    uiInterface.ThreadSafeMessageBox(str, _("Denarius"), CClientUIInterface::OK | CClientUIInterface::MODAL);
+    uiInterface.ThreadSafeMessageBox(str, _("Qwoyn"), CClientUIInterface::OK | CClientUIInterface::MODAL);
     return false;
 }
 
 bool static InitWarning(const std::string &str)
 {
-    uiInterface.ThreadSafeMessageBox(str, _("Denarius"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+    uiInterface.ThreadSafeMessageBox(str, _("Qwoyn"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
     return true;
 }
 
@@ -301,8 +301,8 @@ std::string HelpMessage()
 {
     string strUsage = _("Options:") + "\n" +
         "  -?                     " + _("This help message") + "\n" +
-        "  -conf=<file>           " + _("Specify configuration file (default: denarius.conf)") + "\n" +
-        "  -pid=<file>            " + _("Specify pid file (default: denariusd.pid)") + "\n" +
+        "  -conf=<file>           " + _("Specify configuration file (default: qwoyn.conf)") + "\n" +
+        "  -pid=<file>            " + _("Specify pid file (default: qwoynd.pid)") + "\n" +
         "  -datadir=<dir>         " + _("Specify data directory") + "\n" +
         "  -wallet=<dir>          " + _("Specify wallet file (within data directory)") + "\n" +
         "  -dbcache=<n>           " + _("Set database cache size in megabytes (default: 25)") + "\n" +
@@ -394,7 +394,7 @@ std::string HelpMessage()
         "\n" + _("Darksend options:") + "\n" +
         "  -enabledarksend=<n>          " + _("Enable use of automated darksend for funds stored in this wallet (0-1, default: 0)") + "\n" +
         "  -darksendrounds=<n>          " + _("Use N separate masternodes to anonymize funds  (2-8, default: 2)") + "\n" +
-        "  -anonymizedenariusamount=<n> " + _("Keep N Denarius anonymized (default: 0)") + "\n" +
+        "  -anonymizeqwoynamount=<n> " + _("Keep N Qwoyn anonymized (default: 0)") + "\n" +
         "  -liquidityprovider=<n>       " + _("Provide liquidity to Darksend by infrequently mixing coins on a continual basis (0-100, default: 0, 1=very frequent, high fees, 100=very infrequent, low fees)") + "\n" +
 
         "\n" + _("InstantX options:") + "\n" +
@@ -606,7 +606,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     // ********************************************************* Step 4: application initialization: dir lock, daemonize, pidfile, debug log
     // Sanity check
     if (!InitSanityCheck())
-        return InitError(_("Initialization sanity check failed. Denarius is shutting down."));
+        return InitError(_("Initialization sanity check failed. Qwoyn is shutting down."));
 
     std::string strDataDir = GetDataDir().string();
     std::string strWalletFileName = GetArg("-wallet", "wallet.dat");
@@ -621,12 +621,12 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (file) fclose(file);
     static boost::interprocess::file_lock lock(pathLockFile.string().c_str());
     if (!lock.try_lock())
-        return InitError(strprintf(_("Cannot obtain a lock on data directory %s.  Denarius is probably already running."), strDataDir.c_str()));
+        return InitError(strprintf(_("Cannot obtain a lock on data directory %s.  Qwoyn is probably already running."), strDataDir.c_str()));
 
     if (GetBoolArg("-shrinkdebugfile", !fDebug))
         ShrinkDebugFile();
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    printf("Denarius version %s (%s)\n", FormatFullVersion().c_str(), CLIENT_DATE.c_str());
+    printf("Qwoyn version %s (%s)\n", FormatFullVersion().c_str(), CLIENT_DATE.c_str());
     printf("Using OpenSSL version %s\n", SSLeay_version(SSLEAY_VERSION));
     if (!fLogTimestamps)
         printf("Startup time: %s\n", DateTimeStrFormat("%x %H:%M:%S", GetTime()).c_str());
@@ -646,7 +646,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     CMasterNode::minProtoVersion = GetArg("-masternodeminprotocol", MIN_MN_PROTO_VERSION);
 
     if (fDaemon)
-        fprintf(stdout, "Denarius server starting\n");
+        fprintf(stdout, "Qwoyn server starting\n");
 
     int64_t nStart;
 
@@ -678,7 +678,7 @@ bool AppInit2(boost::thread_group& threadGroup)
                                      " Original wallet.dat saved as wallet.{timestamp}.bak in %s; if"
                                      " your balance or transactions are incorrect you should"
                                      " restore from a backup."), strDataDir.c_str());
-            uiInterface.ThreadSafeMessageBox(msg, _("Denarius"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+            uiInterface.ThreadSafeMessageBox(msg, _("Qwoyn"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
         }
         if (r == CDBEnv::RECOVER_FAIL)
             return InitError(_("wallet.dat corrupt, salvage failed"));
@@ -875,13 +875,13 @@ bool AppInit2(boost::thread_group& threadGroup)
         {
             string msg(_("Warning: error reading wallet.dat! All keys read correctly, but transaction data"
                          " or address book entries might be missing or incorrect."));
-            uiInterface.ThreadSafeMessageBox(msg, _("Denarius"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+            uiInterface.ThreadSafeMessageBox(msg, _("Qwoyn"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
         }
         else if (nLoadWalletRet == DB_TOO_NEW)
-            strErrors << _("Error loading wallet.dat: Wallet requires newer version of Denarius") << "\n";
+            strErrors << _("Error loading wallet.dat: Wallet requires newer version of Qwoyn") << "\n";
         else if (nLoadWalletRet == DB_NEED_REWRITE)
         {
-            strErrors << _("Wallet needed to be rewritten: restart Denarius to complete") << "\n";
+            strErrors << _("Wallet needed to be rewritten: restart Qwoyn to complete") << "\n";
             printf("%s", strErrors.str().c_str());
             return InitError(strErrors.str());
         }
@@ -1043,15 +1043,15 @@ bool AppInit2(boost::thread_group& threadGroup)
         nDarksendRounds = 99999;
     }
 
-    nAnonymizeDenariusAmount = GetArg("-anonymizedenariusamount", 0);
-    if(nAnonymizeDenariusAmount > 999999) nAnonymizeDenariusAmount = 999999;
-    if(nAnonymizeDenariusAmount < 2) nAnonymizeDenariusAmount = 2;
+    nAnonymizeQwoynAmount = GetArg("-anonymizeqwoynamount", 0);
+    if(nAnonymizeQwoynAmount > 999999) nAnonymizeQwoynAmount = 999999;
+    if(nAnonymizeQwoynAmount < 2) nAnonymizeQwoynAmount = 2;
 
     bool fEnableInstantX = GetBoolArg("-enableinstantx", true);
     if(fEnableInstantX){
         nInstantXDepth = GetArg("-instantxdepth", 5);
         if(nInstantXDepth > 60) nInstantXDepth = 60;
-        if(nInstantXDepth < 0) nAnonymizeDenariusAmount = 0;
+        if(nInstantXDepth < 0) nAnonymizeQwoynAmount = 0;
     } else {
         nInstantXDepth = 0;
     }
@@ -1067,7 +1067,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     printf("fMasterNode %d\n", fMasterNode);
     printf("nInstantXDepth %d\n", nInstantXDepth);
     printf("Darksend rounds %d\n", nDarksendRounds);
-    printf("Anonymize Denarius Amount %d\n", nAnonymizeDenariusAmount);
+    printf("Anonymize Qwoyn Amount %d\n", nAnonymizeQwoynAmount);
 
     /* Denominations
        A note about convertability. Within Darksend pools, each denomination

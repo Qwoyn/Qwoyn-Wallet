@@ -78,7 +78,7 @@ tradingDialog::tradingDialog(QWidget *parent) :
     /*Market History Table Init*/
     ui->MarketHistoryTable->setColumnCount(5);
     ui->MarketHistoryTable->verticalHeader()->setVisible(false);
-    ui->MarketHistoryTable->setHorizontalHeaderLabels(QStringList()<<"DATE"<<"BUY/SELL"<<"BID/ASK"<<"TOTAL DENARIUS(DNR)"<<"TOTAL COST(BTC)");
+    ui->MarketHistoryTable->setHorizontalHeaderLabels(QStringList()<<"DATE"<<"BUY/SELL"<<"BID/ASK"<<"TOTAL QWOYN(DNR)"<<"TOTAL COST(BTC)");
     ui->MarketHistoryTable->setRowCount(0);
     int Cellwidth =  ui->MarketHistoryTable->width() / 5;
     ui->MarketHistoryTable->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
