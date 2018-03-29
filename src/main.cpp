@@ -1267,11 +1267,11 @@ int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
 		nSubsidy = 10000000 * COIN;  // 10% Premine	
 	else if (pindexBest->nHeight <= FAIR_LAUNCH_BLOCK) // Block 210, Instamine prevention
         nSubsidy = 1 * COIN/2;	
-	else if (pindexBest->nHeight <= 500) // Block 500 - 1000 QWN (33% will go to hybrid masternodes)
+	else if (pindexBest->nHeight <= ) // Block 50 - 100 QWN 
 		nSubsidy = 3 * COIN;	
-	else if (pindexBest->nHeight <= 1000) // Block 1000 ~ 5000 QWN
+	else if (pindexBest->nHeight <= 1000) // Block 1000 ~ 500 QWN
 		nSubsidy = 4 * COIN;
-	else if (pindexBest->nHeight <= 5000) // Block 5000 ~ 10000 m QWN
+	else if (pindexBest->nHeight <= 5000) // Block 500 ~ 1000 QWN
 		nSubsidy = 3 * COIN;		
     else if (pindexBest->nHeight > LAST_POW_BLOCK) // Block 10,000
 		nSubsidy = 0; // PoW Ends
@@ -2003,13 +2003,13 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
             return DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%"PRId64" vs calculated=%"PRId64")", nStakeReward, nCalculatedStakeReward));
     }
     
-    // ----------- masternode payments -----------
-    // Once upon a time, People were really interested in QWN.
-    // So much so, People wanted to bring QWN to the moon. Even Mars, Sooner than the roadster...
+    /* // ----------- masternode payments -----------
+    // Once upon a time, People were really interested in DNR.
+    // So much so, People wanted to bring DNR to the moon. Even Mars, Sooner than the roadster...
     // The Discord was active, People discussed how they would reach that goal.
     // There was one person, named Thi3rryzz watching all this from a save distance.
     // Then, the word MASTERNODES came to the table.
-    // People wanted masternodes... Really Bad. But King Carsen was already busy with the rest of QWN
+    // People wanted masternodes... Really Bad. But King Carsen was already busy with the rest of DNR
     // So Thi3rryzz decided to jump in..
     // After a lot of: "How much for MN" and "When MN?"
     // We hope to proudly present you:
