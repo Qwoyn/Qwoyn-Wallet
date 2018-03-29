@@ -12,21 +12,21 @@
 
 using namespace json_spirit;
 
-const QString kBaseUrl = "http://qwoyn.io/dnrusd.php";
+const QString kBaseUrl = "http://qwoyn.io/qwnusd.php";
 const QString kBaseUrl1 = "http://blockchain.info/tobtc?currency=USD&value=1";
-const QString kBaseUrl2 = "http://qwoyn.io/dnrmc.php";
-const QString kBaseUrl3 = "http://qwoyn.io/dnrbtc.php";
+const QString kBaseUrl2 = "http://qwoyn.io/qwnmc.php";
+const QString kBaseUrl3 = "http://qwoyn.io/qwnbtc.php";
 
 QString bitcoinp = "";
 QString qwoynp = "";
-QString dnrmcp = "";
-QString dnrbtcp = "";
+QString qwnmcp = "";
+QString qwnbtcp = "";
 double bitcoin2;
 double qwoyn2;
-double dnrmc2;
-double dnrbtc2;
+double qwnmc2;
+double qwnbtc2;
 QString bitcoing;
-QString dnrmarket;
+QString qwnmarket;
 QString dollarg;
 int mode=1;
 int o = 0;
@@ -128,42 +128,42 @@ if (what == kBaseUrl2) // Qwoyn Market Cap
 {
 
     // QNetworkReply is a QIODevice. So we read from it just like it was a file
-    QString dnrmc = finished->readAll();
-    dnrmc2 = (dnrmc.toDouble());
-    dnrmc = QString::number(dnrmc2, 'f', 2);
+    QString qwnmc = finished->readAll();
+    qwnmc2 = (qwnmc.toDouble());
+    qwnmc = QString::number(qwnmc2, 'f', 2);
 	
-    if(dnrmc > dnrmcp)
+    if(qwnmc > qwnmcp)
     {
-        ui->dnrmc->setText("<font color=\"yellow\">$" + dnrmc + "</font>");
-    } else if (dnrmc < dnrmcp) {
-        ui->dnrmc->setText("<font color=\"red\">$" + dnrmc + "</font>");
+        ui->qwnmc->setText("<font color=\"yellow\">$" + qwnmc + "</font>");
+    } else if (qwnmc < qwnmcp) {
+        ui->qwnmc->setText("<font color=\"red\">$" + qwnmc + "</font>");
         } else {
-    ui->dnrmc->setText("$"+dnrmc+" USD");
+    ui->qwnmc->setText("$"+qwnmc+" USD");
     }
 
-    dnrmcp = dnrmc;
-	dnrmarket = dnrmc;
+    qwnmcp = qwnmc;
+	qwnmarket = qwnmc;
 }
 
 if (what == kBaseUrl3) // Qwoyn BTC Price
 {
 
     // QNetworkReply is a QIODevice. So we read from it just like it was a file
-    QString dnrbtc = finished->readAll();
-    dnrbtc2 = (dnrbtc.toDouble());
-    dnrbtc = QString::number(dnrbtc2, 'f', 8);
+    QString qwnbtc = finished->readAll();
+    qwnbtc2 = (qwnbtc.toDouble());
+    qwnbtc = QString::number(qwnbtc2, 'f', 8);
 	
-    if(dnrbtc > dnrbtcp)
+    if(qwnbtc > qwnbtcp)
     {
-        ui->dnrbtc->setText("<font color=\"yellow\">" + dnrbtc + " BTC</font>");
-    } else if (dnrbtc < dnrbtcp) {
-        ui->dnrbtc->setText("<font color=\"red\">" + dnrbtc + " BTC</font>");
+        ui->qwnbtc->setText("<font color=\"yellow\">" + qwnbtc + " BTC</font>");
+    } else if (qwnbtc < qwnbtcp) {
+        ui->qwnbtc->setText("<font color=\"red\">" + qwnbtc + " BTC</font>");
         } else {
-    ui->dnrbtc->setText(dnrbtc+" BTC");
+    ui->qwnbtc->setText(qwnbtc+" BTC");
     }
 
-    dnrbtcp = dnrbtc;
-	bitcoing = dnrbtc;
+    qwnbtcp = qwnbtc;
+	bitcoing = qwnbtc;
 }
 
 finished->deleteLater();

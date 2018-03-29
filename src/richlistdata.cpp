@@ -71,13 +71,13 @@ bool UpdateRichList()
 			        if(ExtractDestination(atxout.scriptPubKey, dest))
 			        {
 			   
-			    	    std::string dnrAddress = CBitcoinAddress(dest).ToString();
+			    	    std::string qwnAddress = CBitcoinAddress(dest).ToString();
 				        CRichListDataItem richListDataItem;
-				        richListDataItem.dAddress = dnrAddress;
-				        if(richListData.mapRichList.find(dnrAddress) == richListData.mapRichList.end())
-				            richListData.mapRichList.insert(make_pair(dnrAddress, richListDataItem));
+				        richListDataItem.dAddress = qwnAddress;
+				        if(richListData.mapRichList.find(qwnAddress) == richListData.mapRichList.end())
+				            richListData.mapRichList.insert(make_pair(qwnAddress, richListDataItem));
 					
-				        richListData.mapRichList[dnrAddress].nBalance = richListData.mapRichList[dnrAddress].nBalance - atxout.nValue;
+				        richListData.mapRichList[qwnAddress].nBalance = richListData.mapRichList[qwnAddress].nBalance - atxout.nValue;
 									    
 			        }
 			    }
@@ -92,13 +92,13 @@ bool UpdateRichList()
 		    CTxDestination dest;
 		    if(ExtractDestination(atxout.scriptPubKey, dest))
 		    {
-			    std::string dnrAddress = CBitcoinAddress(dest).ToString();
+			    std::string qwnAddress = CBitcoinAddress(dest).ToString();
 			    CRichListDataItem richListDataItem;
-			    richListDataItem.dAddress = dnrAddress;
-			    if(richListData.mapRichList.find(dnrAddress) == richListData.mapRichList.end())
-				richListData.mapRichList.insert(make_pair(dnrAddress, richListDataItem));
+			    richListDataItem.dAddress = qwnAddress;
+			    if(richListData.mapRichList.find(qwnAddress) == richListData.mapRichList.end())
+				richListData.mapRichList.insert(make_pair(qwnAddress, richListDataItem));
 
-			    richListData.mapRichList[dnrAddress].nBalance = richListData.mapRichList[dnrAddress].nBalance + atxout.nValue;
+			    richListData.mapRichList[qwnAddress].nBalance = richListData.mapRichList[qwnAddress].nBalance + atxout.nValue;
 		
 		    }
 		}

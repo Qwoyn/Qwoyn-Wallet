@@ -22,10 +22,10 @@
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 3
 
-const QString BaseURL = "http://qwoyn.io/dnrusd.php";
-const QString BaseURL2 = "http://qwoyn.io/dnrbtc.php";
+const QString BaseURL = "http://qwoyn.io/qwnusd.php";
+const QString BaseURL2 = "http://qwoyn.io/qwnbtc.php";
 double qwoynx;
-double dnrbtcx;
+double qwnbtcx;
 
 class TxViewDelegate : public QAbstractItemDelegate
 {
@@ -204,11 +204,11 @@ if (what == BaseURL2) // Qwoyn BTC Price
 {
 
     // QNetworkReply is a QIODevice. So we read from it just like it was a file
-    QString dnrbtc = finished->readAll();
-    dnrbtcx = (dnrbtc.toDouble());
-    dnrbtc = QString::number(dnrbtcx, 'f', 8);
+    QString qwnbtc = finished->readAll();
+    qwnbtcx = (qwnbtc.toDouble());
+    qwnbtc = QString::number(qwnbtcx, 'f', 8);
 
-	bitcoing = dnrbtc;
+	bitcoing = qwnbtc;
 }
 finished->deleteLater();
 }
