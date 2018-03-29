@@ -3116,10 +3116,10 @@ bool LoadBlockIndex(bool fAllowNew)
 
     if (fTestNet)
     {
-        pchMessageStart[0] = 0x07;
-        pchMessageStart[1] = 0x11;
-        pchMessageStart[2] = 0x05;
-        pchMessageStart[3] = 0x0b;
+        pchMessageStart[0] = 0x1b;
+        pchMessageStart[1] = 0x2c;
+        pchMessageStart[2] = 0x3d;
+        pchMessageStart[3] = 0x4e;
 
         bnProofOfWorkLimit = bnProofOfWorkLimitTestNet; // 16 bits PoW target limit for testnet
         nStakeMinAge = 1 * 60 * 60; // test net min age is 1 hour
@@ -3599,7 +3599,7 @@ void static ProcessGetData(CNode* pfrom)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0xfa, 0xf2, 0xef, 0xb4 };
+unsigned char pchMessageStart[4] = { 0xfd, 0xff, 0xefg, 0xb5 };
 
 bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, int64_t nTimeReceived)
 {

@@ -1318,13 +1318,7 @@ void MapPort()
 // The second name should resolve to a list of seed addresses.
 
 static const char *strDNSSeed[][2] = {
-    {"qwoynexplorer.org", "qwoynexplorer.org"},
-    {"107.181.154.106", "107.181.154.106"},
-    {"chainz.cryptoid.info", "chainz.cryptoid.info"},
-    {"hashbag.cc", "hashbag.cc"},
-    {"qwoyn.name", "qwoyn.name"},
-    {"yiimp.eu", "yiimp.eu"},
-    {"qwoyn.host", "qwoyn.host"}
+    {NULL, NULL}
 };
 
 void ThreadDNSAddressSeed(void* parg)
@@ -1393,7 +1387,7 @@ void ThreadDNSAddressSeed2(void* parg)
 
 unsigned int pnSeed[] =
 {
-    0x42ac0c50,
+    0x0,
 };
 
 
