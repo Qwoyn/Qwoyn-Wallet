@@ -1,31 +1,10 @@
-# Denarius [DNR]
+# Qwoyn [QWN]
 Tribus Algo PoW/PoS Hybrid Cryptocurrency
 
-![logo](http://i.imgur.com/gIe5vnw.png)
-
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
-[![Join the chat at https://gitter.im/denariusproject/Lobby](https://badges.gitter.im/carsenk/denarius.svg)](https://gitter.im/denariusproject/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
-Intro
-==========================
-Denarius is an anonymous, untraceable and secure hybrid cryptocurrency. 
 
-Ticker: DNR
 
-Denarius [DNR] is an anonymous, untraceable, energy efficient, Proof-of-Work (New Tribus Algorithm) and Proof-of-Stake cryptocurrency.
-
-10,000,000 DNR will be created in about 3 years during the PoW phase. Denarius has a 10% Premine of 1,000,000 DNR for bounties, distribution, and marketing.
-
-Specifications
-==========================
-* Total number of coins: 10,000,000 DNR
-* Ideal block time: 30 seconds
-* Stake interest: 6% annual static inflation
-* Confirmations: 10 blocks
-* Maturity: 30 blocks (15 minutes)
-* Min stake age: 8 hours
-* Cost of Hybrid Masternode: 5,000 DNR
-* Hybrid Masternode Reward: 33% of current block reward
 
 Technology
 ==========================
@@ -40,9 +19,8 @@ Technology
 
 LINKS
 ==========================
-* Official Website(https://denarius.io/)
-* Official Forums(https://denariustalk.org/)
-* Denarius Twitter(https://twitter.com/denariuscoin)
+* Official Website(https://qwoyn.com/)
+* Denarius Twitter(https://twitter.com/qwoyn)
 
 
 Development process
