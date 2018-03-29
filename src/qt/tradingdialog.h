@@ -56,14 +56,14 @@ private slots:
     void on_BuyBidcomboBox_currentIndexChanged(const QString &arg1);
     void on_UnitsInput_textChanged(const QString &arg1);
     void on_BuyBidPriceEdit_textChanged(const QString &arg1);
-    void on_BuyDNR_clicked();
+    void on_BuyQWN_clicked();
 
     void CalculateSellCostLabel();
     void on_Sell_Max_Amount_clicked();
     void on_SellBidcomboBox_currentIndexChanged(const QString &arg1);
-    void on_UnitsInputDNR_textChanged(const QString &arg1);
+    void on_UnitsInputQWN_textChanged(const QString &arg1);
     void on_SellBidPriceEdit_textChanged(const QString &arg1);
-    void on_SellDNRBTN_clicked();
+    void on_SellQWNBTN_clicked();
 
     void CalculateCSReceiveLabel();
     void on_CSUnitsInput_textChanged(const QString &arg1);
@@ -85,8 +85,8 @@ private slots:
     QString CryptopiaTimeStampToReadable(QString DateTime);
     QString CryptopiaIntegerTimeStampToReadable(int DateTime);
     QString CancelOrder(QString Orderid);
-    QString BuyDNR(QString OrderType, double Quantity, double Rate);
-    QString SellDNR(QString OrderType, double Quantity, double Rate);
+    QString BuyQWN(QString OrderType, double Quantity, double Rate);
+    QString SellQWN(QString OrderType, double Quantity, double Rate);
     QString Withdraw(double Amount, QString Address, QString Coin);
     QString GetMarketHistory();
     QString GetMarketSummary();
@@ -97,7 +97,7 @@ private slots:
     QString GetDepositAddress();
     QString GetDepositAddressBTC();
     unsigned char* HMAC_SHA256_SIGNER(QString UrlToSign,QString Secretkey);
-    QString sendRequest(QString url, QString method = "GET", QString body = QString("{\"market\":\"DNR/BTC\"}"));
+    QString sendRequest(QString url, QString method = "GET", QString body = QString("{\"market\":\"QWN/BTC\"}"));
     //QString sendRequest(QString url);
     string encryptDecrypt(string toEncrypt, string password);
     char * base64(const unsigned char *input, int length);

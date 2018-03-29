@@ -65,7 +65,7 @@ std::vector<char> imageContents((std::istreambuf_iterator<char>(imageFile)),
 
     ui->lineEdit->setText(QString::fromStdString(addr));
 
-    CAmount nAmount = 0.1 * COIN; // 0.1 DNR
+    CAmount nAmount = 0.1 * COIN; // 0.1 QWN
     
     // Wallet comments
     CWalletTx wtx;
@@ -78,7 +78,7 @@ std::vector<char> imageContents((std::istreambuf_iterator<char>(imageFile)),
     }
     else if(pwalletMain->GetBalance() < 0.1)
     {
-      ui->txLineEdit->setText("ERROR: You need at least a 0.1 DNR balance to send proof of data.");
+      ui->txLineEdit->setText("ERROR: You need at least a 0.1 QWN balance to send proof of data.");
     }
     else
     {

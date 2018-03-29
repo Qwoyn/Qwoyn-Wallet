@@ -767,7 +767,7 @@ void CDarkSendPool::ChargeRandomFees(){
                 with using it to stop abuse. Otherwise it could serve as an attack vector and
                 allow endless transaction that would bloat Qwoyn and make it unusable. To
                 stop these kinds of attacks 1 in 50 successful transactions are charged. This
-                adds up to a cost of 0.002DNR per transaction on average.
+                adds up to a cost of 0.002QWN per transaction on average.
             */
             if(r <= 20)
             {
@@ -1461,7 +1461,7 @@ bool CDarkSendPool::DoAutomaticDenominating(bool fDryRun, bool ready)
         if(sessionTotalValue > nBalanceNeedsAnonymized) sessionTotalValue = nBalanceNeedsAnonymized;
 
         double fQwoynSubmitted = (sessionTotalValue / CENT);
-        printf("Submitting Darksend for %f DNR CENT - sessionTotalValue %lu\n", fQwoynSubmitted, sessionTotalValue);
+        printf("Submitting Darksend for %f QWN CENT - sessionTotalValue %lu\n", fQwoynSubmitted, sessionTotalValue);
 
         if(pwalletMain->GetDenominatedBalance(true, true) > 0){ //get denominated unconfirmed inputs
             printf("DoAutomaticDenominating -- Found unconfirmed denominated outputs, will wait till they confirm to continue.\n");
@@ -1852,10 +1852,10 @@ bool CDarkSendPool::IsCompatibleWithSession(int64_t nDenom, CTransaction txColla
 void CDarkSendPool::GetDenominationsToString(int nDenom, std::string& strDenom){
     // Function returns as follows:
     //
-    // bit 0 - 100DNR+1 ( bit on if present )
-    // bit 1 - 10DNR+1
-    // bit 2 - 1DNR+1
-    // bit 3 - .1DNR+1
+    // bit 0 - 100QWN+1 ( bit on if present )
+    // bit 1 - 10QWN+1
+    // bit 2 - 1QWN+1
+    // bit 3 - .1QWN+1
     // bit 3 - non-denom
 
 
@@ -1911,10 +1911,10 @@ int CDarkSendPool::GetDenominations(const std::vector<CTxOut>& vout){
 
     // Function returns as follows:
     //
-    // bit 0 - 100DNR+1 ( bit on if present )
-    // bit 1 - 10DNR+1
-    // bit 2 - 1DNR+1
-    // bit 3 - .1DNR+1
+    // bit 0 - 100QWN+1 ( bit on if present )
+    // bit 1 - 10QWN+1
+    // bit 2 - 1QWN+1
+    // bit 3 - .1QWN+1
 
     return denom;
 }

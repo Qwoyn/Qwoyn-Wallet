@@ -657,7 +657,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (!bitdb.Open(GetDataDir()))
     {
         string msg = strprintf(_("Error initializing database environment %s!"
-                                 " To recover, BACKUP THAT DIRECDNRY, then remove"
+                                 " To recover, BACKUP THAT DIRECTORY, then remove"
                                  " everything from it except for wallet.dat."), strDataDir.c_str());
         return InitError(msg);
     }
@@ -732,8 +732,8 @@ bool AppInit2(boost::thread_group& threadGroup)
             addrOnion = CService(mapArgs["-tor"], 9050);
         if (!addrOnion.IsValid())
             return InitError(strprintf(_("Invalid -tor address: '%s'"), mapArgs["-tor"].c_str()));
-        SetProxy(NET_DNR, addrOnion, 5);
-        SetReachable(NET_DNR);
+        SetProxy(NET_QWN, addrOnion, 5);
+        SetReachable(NET_QWN);
     }
 
     // see Step 2: parameter interactions for more information about these
@@ -800,7 +800,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (!bitdb.Open(GetDataDir()))
     {
         string msg = strprintf(_("Error initializing database environment %s!"
-                                 " To recover, BACKUP THAT DIRECDNRY, then remove"
+                                 " To recover, BACKUP THAT DIRECQWNY, then remove"
                                  " everything from it except for wallet.dat."), strDataDir.c_str());
         return InitError(msg);
     }
@@ -1073,8 +1073,8 @@ bool AppInit2(boost::thread_group& threadGroup)
        A note about convertability. Within Darksend pools, each denomination
        is convertable to another.
        For example:
-       1DNR+1000 == (.1DNR+100)*10
-       10DNR+10000 == (1DNR+1000)*10
+       1QWN+1000 == (.1QWN+100)*10
+       10QWN+10000 == (1QWN+1000)*10
     */
     darkSendDenominations.push_back( (100000      * COIN)+100000000 );    
     darkSendDenominations.push_back( (10000       * COIN)+10000000 );

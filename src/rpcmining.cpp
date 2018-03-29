@@ -543,7 +543,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
             // masternodes are in-eligible for payment, burn the coins in-stead
             std::string burnAddress;
             if (fTestNet) burnAddress = "8TestXXXXXXXXXXXXXXXXXXXXXXXXbCvpq";
-            else burnAddress = "DNRXXXXXXXXXXXXXXXXXXXXXXXXXZeeDTw";
+            else burnAddress = "QWNXXXXXXXXXXXXXXXXXXXXXXXXXZeeDTw";
             CBitcoinAddress burnDestination;
             burnDestination.SetString(burnAddress);
             payee = GetScriptForDestination(burnDestination.Get());

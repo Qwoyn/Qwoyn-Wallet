@@ -33,7 +33,7 @@
        <item>
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26px;font-weight:600;&quot;&gt;Qwoyn Rich List&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This list is built from all of the addresses seen on the network in the DNR address index and can take a long time to update the first time. The wallet will temporarily freeze while updating, please wait around 15-30 minutes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:26px;font-weight:600;&quot;&gt;Qwoyn Rich List&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This list is built from all of the addresses seen on the network in the QWN address index and can take a long time to update the first time. The wallet will temporarily freeze while updating, please wait around 15-30 minutes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>

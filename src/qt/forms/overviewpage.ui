@@ -63,7 +63,7 @@
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="text">
-             <string>&lt;div style=&quot;color: #fff;&quot;&gt;(&lt;a href=&quot;https://www.cryptopia.co.nz/Exchange/?market=DNR_BTC&quot; style=&quot;color: #fff;&quot;&gt;Trade DNR&lt;/a&gt;)&lt;/div&gt;</string>
+             <string>&lt;div style=&quot;color: #fff;&quot;&gt;(&lt;a href=&quot;https://www.cryptopia.co.nz/Exchange/?market=QWN_BTC&quot; style=&quot;color: #fff;&quot;&gt;Trade QWN&lt;/a&gt;)&lt;/div&gt;</string>
             </property>
             <property name="openExternalLinks">
              <bool>true</bool>
@@ -118,7 +118,7 @@
              <string>Your current spendable balance</string>
             </property>
             <property name="text">
-             <string notr="true">0 DNR</string>
+             <string notr="true">0 QWN</string>
             </property>
             <property name="textInteractionFlags">
              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -147,7 +147,7 @@
              <string>Total of coins that was staked, and do not yet count toward the current balance</string>
             </property>
             <property name="text">
-             <string notr="true">0 DNR</string>
+             <string notr="true">0 QWN</string>
             </property>
             <property name="textInteractionFlags">
              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -176,7 +176,7 @@
              <string>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</string>
             </property>
             <property name="text">
-             <string notr="true">0 DNR</string>
+             <string notr="true">0 QWN</string>
             </property>
             <property name="textInteractionFlags">
              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -202,7 +202,7 @@
              <string>Mined balance that has not yet matured</string>
             </property>
             <property name="text">
-             <string notr="true">0 DNR</string>
+             <string notr="true">0 QWN</string>
             </property>
             <property name="textInteractionFlags">
              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -239,7 +239,7 @@
              <string>Your current total balance</string>
             </property>
             <property name="text">
-             <string notr="true">0 DNR</string>
+             <string notr="true">0 QWN</string>
             </property>
             <property name="textInteractionFlags">
              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -452,7 +452,7 @@
             </font>
            </property>
            <property name="text">
-            <string>0 DNR</string>
+            <string>0 QWN</string>
            </property>
           </widget>
          </item>
@@ -466,7 +466,7 @@
          <item row="3" column="1">
           <widget class="QLabel" name="labelAmountRounds">
            <property name="text">
-            <string>0 DNR / 0 Rounds</string>
+            <string>0 QWN / 0 Rounds</string>
            </property>
           </widget>
          </item>
