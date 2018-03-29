@@ -19,8 +19,8 @@
 
 class CValidationState;
 
-#define BLOCK_START_MASTERNODE_PAYMENTS_TESTNET 81500 // Testnet Masternode payments enabled block 81k5
-#define BLOCK_START_MASTERNODE_PAYMENTS 645000 //Mainnet Masternode payments not enabled until block 645k
+#define BLOCK_START_MASTERNODE_PAYMENTS_TESTNET 10 // Testnet Masternode payments enabled block 81k5
+#define BLOCK_START_MASTERNODE_PAYMENTS 1000 //Mainnet Masternode payments not enabled until block 645k
 
 //#define START_MASTERNODE_PAYMENTS_TESTNET 1519430400  //Sat, 24 Feb 2018 00:00:00 GMT
 //#define START_MASTERNODE_PAYMENTS 1520985600  //Wed, 14 Mar 2018 00:00:00 GMT
@@ -72,9 +72,9 @@ class CNode;
 
 // General Qwoyn Block Values
 
-static const int LAST_POW_BLOCK = 10000; // Block 3m Approx. 3 years of Proof of Work before Proof of Stake consensus kicks in
+static const int LAST_POW_BLOCK = 1000; // Block 1000 for premine
 static const int FAIR_LAUNCH_BLOCK = 210; // Last Block until full block reward starts
-static const unsigned int MAX_BLOCK_SIZE = 1000000; // 1MB block hard limit, double the size of Bitcoin
+static const unsigned int MAX_BLOCK_SIZE = 3000000; // 3MB block hard limit, double the size of Bitcoin
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2; // 512kb block soft limit, ditto
 /** The maximum size for transactions we're willing to relay/mine **/
 static const unsigned int MAX_STANDARD_TX_SIZE = MAX_BLOCK_SIZE_GEN/5;
@@ -83,12 +83,12 @@ static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE/50;
 static const unsigned int MAX_TX_SIGOPS = MAX_BLOCK_SIGOPS/5;
 static const unsigned int MAX_ORPHAN_TRANSACTIONS = MAX_BLOCK_SIZE/100;
 static const unsigned int MAX_INV_SZ = 50000;
-static const int64_t MIN_TX_FEE = 1000;
+static const int64_t MIN_TX_FEE = 1000000;
 static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
-static const int64_t MAX_MONEY = 10000000 * COIN; // 10,000,000 QWN Qwoyn Max
+static const int64_t MAX_MONEY = 250000000 * COIN; // 250M QWN Max
 static const int64_t COIN_YEAR_REWARD = 0.06 * COIN; // 6% per year
 
-static const int64_t MAINNET_POSFIX = 640000; //Mainnet Proof of Stake update not enabled until block 640k
+static const int64_t MAINNET_POSFIX = 2000; //Mainnet Proof of Stake update not enabled until block 2000
 
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 
@@ -98,8 +98,8 @@ static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20
 /** Maxiumum number of signature check operations in an IsStandard() P2SH script */
 static const unsigned int MAX_P2SH_SIGOPS = 15;
 
-static const uint256 hashGenesisBlock("0x00000d5dbbda01621cfc16bbc1f9bf3264d641a5dbf0de89fd0182c2c4828fcd");
-static const uint256 hashGenesisBlockTestNet("0x000086bfe8264d241f7f8e5393f747784b8ca2aa98bdd066278d590462a4fdb4");
+static const uint256 hashGenesisBlock("0x00000b4ae79d18db62ab76c66d923ddd92e2e73e5ffbe63f39fbfe8815aa4df3");
+static const uint256 hashGenesisBlockTestNet("0x00002b2d1caa9ed38d56d4b55a386e23be3e433e78f1b4fb4e04f5eddac2e6b7");
 
 //inline bool IsProtocolV1RetargetingFixed(int nHeight) { return fTestNet || nHeight > 0; }
 //inline bool IsProtocolV2(int nHeight) { return fTestNet || nHeight > 0; }

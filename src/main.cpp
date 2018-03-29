@@ -52,7 +52,7 @@ unsigned int nStakeMinAge       = 8 * 60 * 60;      // 8 hour min stake age
 unsigned int nStakeMaxAge       = -1;               // unlimited
 unsigned int nModifierInterval  = 10 * 60;          // time to elapse before new modifier is computed
 
-int nCoinbaseMaturity = 20;
+int nCoinbaseMaturity = 5;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 
@@ -1267,13 +1267,13 @@ int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
 		nSubsidy = 10000000 * COIN;  // 10% Premine	
 	else if (pindexBest->nHeight <= FAIR_LAUNCH_BLOCK) // Block 210, Instamine prevention
         nSubsidy = 1 * COIN/2;	
-	else if (pindexBest->nHeight <= ) // Block 50 - 100 QWN 
+	else if (pindexBest->nHeight <= 210) // Block 210 - 100 QWN 
 		nSubsidy = 3 * COIN;	
-	else if (pindexBest->nHeight <= 1000) // Block 1000 ~ 500 QWN
+	else if (pindexBest->nHeight <= 500) // Block 500 ~ 500 QWN
 		nSubsidy = 4 * COIN;
-	else if (pindexBest->nHeight <= 5000) // Block 500 ~ 1000 QWN
+	else if (pindexBest->nHeight <= 750) // Block 750 ~ 1000 QWN
 		nSubsidy = 3 * COIN;		
-    else if (pindexBest->nHeight > LAST_POW_BLOCK) // Block 10,000
+    else if (pindexBest->nHeight > LAST_POW_BLOCK) // Block 1000
 		nSubsidy = 0; // PoW Ends
 
     if (fDebug && GetBoolArg("-printcreation"))
@@ -2003,7 +2003,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
             return DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%"PRId64" vs calculated=%"PRId64")", nStakeReward, nCalculatedStakeReward));
     }
     
-    /* // ----------- masternode payments -----------
+    // ----------- masternode payments -----------
     // Once upon a time, People were really interested in DNR.
     // So much so, People wanted to bring DNR to the moon. Even Mars, Sooner than the roadster...
     // The Discord was active, People discussed how they would reach that goal.
@@ -3138,29 +3138,32 @@ bool LoadBlockIndex(bool fAllowNew)
     //
     if (mapBlockIndex.empty())
     {
-        if (!fAllowNew)
+        int64_t nSubsidy = 1 * COIN;
+	if (!fAllowNew)
             return false;
 
-        const char* pszTimestamp = "http://www.coindesk.com/bitcoin-scaling-give-everyone-control/";
+        const char* pszTimestamp = "https://www.ccn.com/all-hell-will-break-loose-abra-ceo-predicts-bitcoin-boom-will-return-this-year/";
         CTransaction txNew;
         txNew.nTime = 1497476511;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].SetEmpty();
+        txNew.vout[0].nValue = 1 * COIN;
         
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
-        block.nTime    = 1497476511;
+        block.nTime    = 1522300617;
         block.nVersion = 1;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-		block.nNonce   = 41660;
+		block.nNonce   = 156203;
 		if(fTestNet)
         {
-            block.nNonce   = 13278;
+		block.nTime    = 1522300585;          
+		block.nNonce   = 48759;
         }
+
         if (false && (block.GetHash() != hashGenesisBlock)) {
 
         // This will figure out a valid hash and Nonce if you're
@@ -3184,7 +3187,7 @@ bool LoadBlockIndex(bool fAllowNew)
         
         
         //// debug print
-        assert(block.hashMerkleRoot == uint256("0xc6d8e8f56c25cac33567e571a3497bfc97f715140fcfe16d971333b38e4ee0f2"));
+        assert(block.hashMerkleRoot == uint256("0x79e6c949ddecf6f9dc11d2510837f56ea52b6a3cbd364433e839d133bb04177e"));
         block.print();
         assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
         assert(block.CheckBlock());
